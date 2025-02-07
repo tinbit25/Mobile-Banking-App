@@ -1,7 +1,14 @@
+
 export default {
   black: '#1A1A1A',
-  grey: '#242424',
-  white: '#FCFCFC',
+  grey: '#333333',
+  white: '#F5F5F5',
+  primary: '#723FEB',
+  secondary: '#3A3A3A',
+  tabInactive: '#BBBBBB', 
   tintColor: '#723FEB',
-  blue: '#97E0F7'
+  tabActive: '#FFFFFF',
+  blue: '#4FA3D1',
+  green: '#27AE60',
+  red: '#E74C3C',
 };
