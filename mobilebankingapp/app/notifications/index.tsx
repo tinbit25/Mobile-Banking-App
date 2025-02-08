@@ -1,7 +1,6 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router'; 
+import { useRouter, useNavigation } from 'expo-router';
 
 const notifications = [
   { id: '1', title: 'System Information', icon: '⚙️' },
@@ -11,21 +10,25 @@ const notifications = [
 
 const Notifications = () => {
   const router = useRouter();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({ title: 'Notifications' });
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Notifications</Text>
       <FlatList
         data={notifications}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
-            onPress={() => router.push(`/notifications/${item.id}`)} 
+            onPress={() => router.push(`/notifications/${item.id}`)}
           >
             <Text style={styles.icon}>{item.icon}</Text>
             <Text style={styles.itemTitle}>{item.title}</Text>
-            <Text style={styles.arrow}> &gt; </Text>
+            <Text style={styles.arrow}>&gt;</Text>
           </TouchableOpacity>
         )}
       />
@@ -36,10 +39,6 @@ const Notifications = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 20,
   },
   item: {
     flexDirection: 'row',

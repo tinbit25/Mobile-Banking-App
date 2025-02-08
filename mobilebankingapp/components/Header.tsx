@@ -7,7 +7,7 @@ import { useRouter } from "expo-router";
 
 const Header = () => {
   const router = useRouter(); 
-  const [showNotifications, setShowNotifications] = useState(false); 
+  const [showNotifications, setShowNotifications] = useState(true); 
 
   const handleNavigation = () => {
     console.log("Navigating to Home...");
@@ -17,7 +17,6 @@ const Header = () => {
   const handleNotificationPress = () => {
     console.log("Navigating to Notifications...");
    
-  
       router.push('/notifications'); 
     
     

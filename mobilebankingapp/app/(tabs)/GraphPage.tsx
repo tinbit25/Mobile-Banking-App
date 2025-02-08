@@ -48,7 +48,6 @@ const GraphPage = () => {
   xAxisThickness={0}
   yAxisThickness={0}
   yAxisTextStyle={styles.yAxisText}
-  labelTextStyle={{ color: 'lightgray' }}  
   noOfSections={4}
   maxValue={380}
 />

@@ -1,5 +1,4 @@
 [
-  
   {
     "id": "1",
     "name": "Grocery Shopping",
@@ -14,63 +13,62 @@
     "date": "2025-02-05",
     "amount": "3000.00",
     "description": "Monthly salary payment",
-    "category": "Deposit"  }
-,  
-{
-  "id": "3",
-  "name": "Bank Transfer",
-  "amount": "300.00",
-  "date": "2024-05-05",
-  "type": "Deposit"
-},
-{
-  "id": "4",
-  "name": "Cash Withdrawal",
-  "amount": "200.00",
-  "date": "2024-05-07",
-  "type": "Withdrawal"
-},
-{
-  "id": "5",
-  "name": "ATM Withdrawal",
-  "amount": "100.00",
-  "date": "2024-05-09",
-  "type": "Withdrawal"
-},
-{
-  "id": "6",
-  "name": "ATM Withdrawal",
-  "amount": "100.00",
-  "date": "2024-05-09",
-  "type": "Withdrawal"
-},
-{
-  "id": "7",
-  "name": "Online Transfer",
-  "amount": "250.00",
-  "date": "2024-05-11",
-  "type": "Withdrawal"
-},
-{
-  "id": "8",
-  "name": "Online Transfer",
-  "amount": "250.00",
-  "date": "2024-05-11",
-  "type": "Withdrawal"
-}
-,
-{
-  "id": "9",
-  "name": "Online Transfer",
-  "amount": "250.00",
-  "date": "2024-05-11",
-  "type": "Withdrawal"
-},
-{
-  "id": "10",
-  "name": "Online Transfer",
-  "amount": "250.00",
-  "date": "2024-05-11",
-  "type": "Withdrawal"
-}
+    "category": "Deposit"
+  },
+  {
+    "id": "3",
+    "name": "Bank Transfer",
+    "amount": "300.00",
+    "date": "2024-05-05",
+    "category": "Deposit"
+  },
+  {
+    "id": "4",
+    "name": "Cash Withdrawal",
+    "amount": "200.00",
+    "date": "2024-05-07",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "5",
+    "name": "ATM Withdrawal",
+    "amount": "100.00",
+    "date": "2024-05-09",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "6",
+    "name": "ATM Withdrawal",
+    "amount": "100.00",
+    "date": "2024-05-09",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "7",
+    "name": "Online Transfer",
+    "amount": "250.00",
+    "date": "2024-05-11",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "8",
+    "name": "Online Transfer",
+    "amount": "250.00",
+    "date": "2024-05-11",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "9",
+    "name": "Online Transfer",
+    "amount": "250.00",
+    "date": "2024-05-11",
+    "category": "Withdrawal"
+  },
+  {
+    "id": "10",
+    "name": "Online Transfer",
+    "amount": "250.00",
+    "date": "2024-05-11",
+    "category": "Withdrawal"
+  }
 ]

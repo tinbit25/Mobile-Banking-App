@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import { View, SafeAreaView, StyleSheet } from 'react-native';
 import { Tabs } from 'expo-router';
-import { SimpleLineIcons, AntDesign, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import Header from '@/components/Header';
 
@@ -19,6 +18,8 @@ const Layout = () => {
             tabBarStyle: {
               backgroundColor: Colors.grey,
               position: 'absolute',
+            
+              paddingTop:8,             
               bottom: 0,
               left: 0,
               right: 0,
@@ -39,8 +40,9 @@ const Layout = () => {
             options={{
               tabBarIcon: ({ focused }) => (
                 <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.primary : Colors.secondary }}>
-                  <SimpleLineIcons name="pie-chart" size={20} color={focused ? Colors.white : Colors.tabInactive} />
-                </View>
+  <Ionicons name="home" size={20} color={focused ? Colors.white : Colors.tabInactive} />
+</View>
+
               ),
             }}
           />
@@ -59,7 +61,7 @@ const Layout = () => {
             options={{
               tabBarIcon: ({ focused }) => (
                 <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.white : Colors.secondary }}>
-                  <Ionicons name="analytics" size={20} color={focused ? Colors.white : Colors.tabInactive} />
+                  <Ionicons name="analytics" size={20} color={focused ? Colors.grey : Colors.tabInactive} />
                 </View>
               ),
             }}

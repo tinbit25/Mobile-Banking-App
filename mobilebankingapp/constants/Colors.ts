@@ -3,7 +3,7 @@ export default {
   black: '#1A1A1A',
   grey: '#333333',
   white: '#F5F5F5',
-  primary: '#723FEB',
+  primary: '#0a54a1',
   secondary: '#3A3A3A',
   tabInactive: '#BBBBBB', 
   tintColor: '#723FEB',

@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React from "react";
 import Colors from "@/constants/Colors";
-import { IncomeType } from "@/types";
+import { ServiceType } from "@/types";
 import { DollarIcon, WalletAddMoneyIcon, WalletCardIcon } from "@/constants/Icons";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -38,10 +38,10 @@ const icons: Record<string, any> = {
   Interest: WalletAddMoneyIcon,
 };
 
-const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
+const TransactionBlock = ({ incomeList }: { incomeList: ServiceType[] }) => {
   const navigation = useNavigation();
 
-  const renderItem: ListRenderItem<IncomeType> = ({ item }) => {
+  const renderItem: ListRenderItem<ServiceType> = ({ item }) => {
     const backgroundColor = backgroundColors[item.name] || Colors.grey;
     const textColor = textColors[item.name] || Colors.white;
     const IconComponent = icons[item.name] || DollarIcon;
@@ -50,7 +50,6 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
       <TouchableOpacity
         style={[styles.incomeBlock, { backgroundColor }]}
         activeOpacity={0.8}
-        onPress={() => navigation.navigate("IncomeDetail", { incomeType: item })}
       >
         <View style={styles.headerWrapper}>
           <View style={styles.iconWrapper}>
@@ -65,9 +64,7 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>
-        <Text style={styles.boldText}>Income Sources</Text>
-      </Text>
+     
       <FlatList
         data={incomeList}
         renderItem={renderItem}
@@ -80,7 +77,7 @@ const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
   );
 };
 
-export default IncomeBlock;
+export default TransactionBlock;
 
 const styles = StyleSheet.create({
   container: {

@@ -3,10 +3,10 @@ import React from "react";
 import Colors from "@/constants/Colors";
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import ExpenseBlock from "@/components/ExpenseBlock";
-import IncomeBlock from "@/components/IncomeBlock";
-import ExpenseList from '@/data/expenses.json';
-import incomeList from '@/data/income.json';
+import ExpenseBlock from "@/components/paymentMethods";
+import TransactionBlock from "@/components/TransactionBlock";
+import ExpenseList from '@/data/paymentMethods.json';
+import incomeList from '@/data/serviceTypes.json';
 import PromotionComponent from "@/components/PromotionComponent";
 
 const Page = () => {
@@ -37,7 +37,7 @@ const Page = () => {
             </View>
           </ImageBackground>
           <ExpenseBlock expenseList={ExpenseList} />
-          <IncomeBlock incomeList={incomeList} />
+          <TransactionBlock incomeList={incomeList} />
           <PromotionComponent />
         </ScrollView>
       </View>

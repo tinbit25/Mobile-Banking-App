@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, Animated, TouchableOpacity } from "react-native";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router"; 
 
@@ -8,13 +8,18 @@ interface SpendingDetailsProps {
 }
 
 const SpendingDetailsPage = ({ route }: SpendingDetailsProps) => {
- 
   const router = useRouter();
-
   
-  const { item } = route?.params || { item: { name: '', amount: 0, date: '', details: '' } };
-
-  const translateY = useRef(new Animated.Value(1000)).current;
+  const { item } = route?.params || { 
+    item: { 
+      name: 'No Name Provided', 
+      amount: 0, 
+      date: 'No Date Provided', 
+      details: 'No details available' 
+    } 
+  };
+  
+  const [translateY, setTranslateY] = useState(new Animated.Value(1000));
 
   useEffect(() => {
     Animated.spring(translateY, {
@@ -29,7 +34,7 @@ const SpendingDetailsPage = ({ route }: SpendingDetailsProps) => {
     >
       <TouchableOpacity
         style={styles.exitButton}
-        onPress={() => router.push("/spending")} 
+        onPress={() => router.push("/spending")}
       >
         <Ionicons name="close" size={30} color="black" />
       </TouchableOpacity>
@@ -43,8 +48,8 @@ const SpendingDetailsPage = ({ route }: SpendingDetailsProps) => {
         style={styles.transactionIcon}
       />
 
-      <Text style={styles.itemName}>{item.name || "No Name Provided"}</Text>
-      <Text style={styles.itemDate}>{item.date || "No Date Provided"}</Text>
+      <Text style={styles.itemName}>{item.name}</Text>
+      <Text style={styles.itemDate}>{item.date}</Text>
 
       <Text
         style={[
@@ -55,7 +60,7 @@ const SpendingDetailsPage = ({ route }: SpendingDetailsProps) => {
         {Math.abs(item.amount).toFixed(2)} birr
       </Text>
 
-      <Text style={styles.itemDetails}>Details: {item.details || "No details available"}</Text>
+      <Text style={styles.itemDetails}>Details: {item.details}</Text>
     </Animated.View>
   );
 };

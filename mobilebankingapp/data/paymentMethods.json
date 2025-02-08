@@ -1,0 +1,23 @@
+[
+    {
+      "id": "1",
+      "name": "Send Money"
+     
+    },
+    {
+      "id": "2",
+      "name": "Pay with M-Pesa"
+      
+    },
+    {
+      "id": "3",
+      "name": "Buy Package"
+      
+    },
+    {
+      "id": "4",
+      "name": "Send to Bank"
+      
+    }
+  ]
+  
