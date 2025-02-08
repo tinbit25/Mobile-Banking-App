@@ -11,41 +11,43 @@ import Colors from "@/constants/Colors";
 import { IncomeType } from "@/types";
 import { DollarIcon, WalletAddMoneyIcon, WalletCardIcon } from "@/constants/Icons";
 import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const IncomeBlock = ({ incomeList }: { incomeList: IncomeType[] }) => {
+  const navigation = useNavigation();
+
   const renderItem: ListRenderItem<IncomeType> = ({ item }) => {
-    let icon = <DollarIcon width={20} height={20} color={Colors.white} />;
-    if (item.name === 'Freelancing') {
-      icon = <WalletCardIcon width={20} height={20} color={Colors.white} />;
-    } else if (item.name === 'Interest') {
-      icon = <WalletAddMoneyIcon width={20} height={20} color={Colors.white} />;
+    let icon = <DollarIcon width={24} height={24} color={Colors.white} />;
+    if (item.name === "Freelancing") {
+      icon = <WalletCardIcon width={24} height={24} color={Colors.white} />;
+    } else if (item.name === "Interest") {
+      icon = <WalletAddMoneyIcon width={24} height={24} color={Colors.white} />;
     }
 
     return (
-      <View style={styles.incomeBlock}>
+      <TouchableOpacity
+        style={styles.incomeBlock}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate("IncomeDetail", { incomeType: item })}
+      >
         <View style={styles.headerWrapper}>
-          <View style={styles.iconWrapper}>
-            {icon}
-          </View>
-          <TouchableOpacity onPress={() => {}}>
-            <Feather name="more-horizontal" size={18} color={Colors.white} />
-          </TouchableOpacity>
+          <View style={styles.iconWrapper}>{icon}</View>
+          <Feather name="more-horizontal" size={20} color={Colors.white} />
         </View>
         <Text style={styles.itemName}>{item.name}</Text>
-       
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>
-        <Text style={styles.boldText}>Others</Text>
+        <Text style={styles.boldText}>Income Sources</Text>
       </Text>
       <FlatList
         data={incomeList}
         renderItem={renderItem}
-        numColumns={2} 
+        numColumns={2}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContent}
       />
@@ -57,46 +59,52 @@ export default IncomeBlock;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 15, 
+    marginHorizontal: 20,
     marginBottom: 20,
   },
   incomeBlock: {
     backgroundColor: Colors.grey,
-    padding: 20, 
-    borderRadius: 15, 
-    marginBottom: 20, 
-    marginHorizontal: 5, 
-    width: "45%",
-    gap: 12, 
+    padding: 20,
+    borderRadius: 20,
+    margin: 10,
+    flex: 1,
+    minWidth: "45%",
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    alignItems: "center",
+    justifyContent: "center",
   },
   headerWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    width: "100%",
   },
   iconWrapper: {
-    borderColor: "#666",
-    borderWidth: 1,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     borderRadius: 50,
-    padding: 8, 
+    padding: 10,
   },
   itemName: {
     color: Colors.white,
     fontSize: 16,
-    marginTop: 12, 
+    fontWeight: "600",
+    marginTop: 12,
+    textAlign: "center",
   },
   headerText: {
     color: Colors.white,
-    fontSize: 18, 
+    fontSize: 20,
     marginBottom: 20,
-  },
-  boldText: {
     fontWeight: "700",
   },
+  boldText: {
+    fontWeight: "800",
+  },
   flatListContent: {
-    paddingBottom: 20, 
-    flexDirection: 'row',
-    flexWrap: 'wrap', 
-    justifyContent: 'space-between', 
+    justifyContent: "space-between",
   },
 });

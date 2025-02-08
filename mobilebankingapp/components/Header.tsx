@@ -8,34 +8,38 @@ import { useRouter } from "expo-router";
 const Header = () => {
   const router = useRouter();
 
+  const handleNavigation = () => {
+    console.log("Navigating to Home...");
+    router.push("/(tabs)"); 
+  };
 
-  const handleHeaderPress = () => {
-    router.push('/');
+  const handleNotificationPress = () => {
+    console.log("Navigating to Notifications...");
+    router.push("/notifications"); 
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.wrapper}>
-        
-
-        <TouchableOpacity style={styles.userInfoWrapper} onPress={handleHeaderPress}>
+      <TouchableOpacity style={styles.wrapper} onPress={handleNavigation}>
+        <View style={styles.userInfoWrapper}>
           <Image
             source={{ uri: "https://i.pravatar.cc/250?u=12" }}
             style={styles.userImg}
           />
           <View style={styles.userTxtWrapper}>
-            <Text style={[styles.userText, { fontSize: 12 }]}>Hi, Tinbit</Text>
+            <Text style={[styles.userText, { fontSize: 12 }]}>Hi, Tinbite</Text>
             <Text style={[styles.userText, { fontSize: 16 }]}>
               <Text style={styles.boldText}>Welcome!</Text>
             </Text>
           </View>
-        </TouchableOpacity>
-
-      
-        <TouchableOpacity style={styles.notificationIconWrapper}>
-          <Ionicons name="notifications-outline" size={24} color={Colors.white} />
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.notificationIconWrapper}
+        onPress={handleNotificationPress}
+      >
+        <Ionicons name="notifications-outline" size={26} color={Colors.white} />
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -47,13 +51,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.black,
     height: 100,
     paddingTop: 20,
-  },
-  wrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 20,
-    height: 70,
+  },
+  wrapper: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   userInfoWrapper: {
     flexDirection: "row",
@@ -74,6 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   notificationIconWrapper: {
-    marginRight: 10,
+    padding: 10, 
   },
 });

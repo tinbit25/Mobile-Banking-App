@@ -1,29 +1,20 @@
 import { ImageBackground, StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import React from "react";
 import Colors from "@/constants/Colors";
-import { Stack } from "expo-router";
+import { useRouter } from 'expo-router';
 import Header from "@/components/Header";
 import { Ionicons } from '@expo/vector-icons';
 import ExpenseBlock from "@/components/ExpenseBlock";
 import IncomeBlock from "@/components/IncomeBlock";
 import ExpenseList from '@/data/expenses.json';
-import SpendingBlock from '@/app/(tabs)/spending';
 import incomeList from '@/data/income.json';
-import spendingList from '@/data/spending.json';
-import { useNavigation } from '@react-navigation/native';
 import PromotionComponent from "@/components/PromotionComponent";
 
-
-
-
 const Page = () => {
-  const navigation = useNavigation();
+  const router = useRouter();
 
   return (
     <>
-      <Stack.Screen
-       
-      />
       <View style={[styles.container]}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <ImageBackground
@@ -32,18 +23,17 @@ const Page = () => {
             imageStyle={{ resizeMode: 'cover' }}
           >
             <TouchableOpacity
-  style={styles.arrowButton}
-  onPress={() => navigation.navigate("spending")}  
->
-
+              style={styles.arrowButton}
+              onPress={() => router.push('/(tabs)/spending')}
+            >
               <Ionicons name="arrow-forward" size={24} color={Colors.white} />
             </TouchableOpacity>
             <View style={styles.contentText}>
               <Text style={{ color: Colors.white, fontSize: 16 }}>
-               <Text style={{ fontWeight: 700 }}>Expenses</Text>
+                <Text style={{ fontWeight: '700' }}>Expenses</Text>
               </Text>
-              <Text style={{ color: Colors.white, fontSize: 36, fontWeight: 700 }}>
-                1475.<Text style={{ fontSize: 22, fontWeight: 400 }}>00 birr</Text>
+              <Text style={{ color: Colors.white, fontSize: 36, fontWeight: '700' }}>
+                1475.<Text style={{ fontSize: 22, fontWeight: '400' }}>00 birr</Text>
               </Text>
             </View>
           </ImageBackground>
@@ -61,7 +51,7 @@ export default Page;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom:50,
+    paddingBottom: 50,
     backgroundColor: Colors.black,
     paddingHorizontal: 20,
   },
