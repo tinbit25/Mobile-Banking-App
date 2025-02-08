@@ -1,17 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 import { SpendingType } from "@/types";
 import Colors from "@/constants/Colors";
-import spendingData from "../../data/spending.json";
 import DepositImage from '../../assets/images/deposit.png';
 import ExpenseImage from '../../assets/images/expenses.png';
+import spendingData from "../../data/spending.json";
 
 const SpendingPage = () => {
-  const navigation = useNavigation(); 
+  const router = useRouter();
 
   const handleCardClick = (item: SpendingType) => {
-    navigation.navigate("SpendingDetails", { item });  
+    router.push({ pathname: "/SpendingDetailsPage", params: item });
   };
 
   return (
@@ -21,7 +21,7 @@ const SpendingPage = () => {
           const amount = parseFloat(item.amount);
           if (isNaN(amount)) return null;
 
-          const transactionImage = amount > 0 ? DepositImage : ExpenseImage;
+          const transactionImage = index % 2 === 0 ? DepositImage : ExpenseImage;
 
           return (
             <TouchableOpacity
@@ -53,8 +53,6 @@ const SpendingPage = () => {
 
 export default SpendingPage;
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -68,17 +66,17 @@ const styles = StyleSheet.create({
   spendingWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 12,
+    marginVertical: 10,
     backgroundColor: Colors.grey,
-    padding: 15,
-    borderRadius: 10,
+    padding: 12,
+    borderRadius: 8,
     width: "100%",
   },
   iconWrapper: {
     backgroundColor: Colors.grey,
-    padding: 15,
+    padding: 12,
     borderRadius: 50,
-    marginRight: 15,
+    marginRight: 12,
   },
   textWrapper: {
     flex: 1,
@@ -93,16 +91,16 @@ const styles = StyleSheet.create({
   },
   itemName: {
     color: Colors.white,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "600",
   },
   itemAmount: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "600",
   },
   transactionIcon: {
-    width: 20,
-    height: 20,
+    width: 18,
+    height: 18,
     marginRight: 5,
   },
   detailsContainer: {

@@ -1,12 +1,13 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
-import { useRouter } from "expo-router";
+import { useRouter } from "expo-router"; 
 
 const Header = () => {
-  const router = useRouter();
+  const router = useRouter(); 
+  const [showNotifications, setShowNotifications] = useState(false); 
 
   const handleNavigation = () => {
     console.log("Navigating to Home...");
@@ -15,7 +16,12 @@ const Header = () => {
 
   const handleNotificationPress = () => {
     console.log("Navigating to Notifications...");
-    router.push("/notifications"); 
+   
+  
+      router.push('/notifications'); 
+    
+    
+    
   };
 
   return (
@@ -39,12 +45,15 @@ const Header = () => {
         onPress={handleNotificationPress}
       >
         <Ionicons name="notifications-outline" size={26} color={Colors.white} />
+        {showNotifications && (
+          <View style={styles.notificationBadge}>
+            <Text style={styles.notificationText}>1</Text> 
+          </View>
+        )}
       </TouchableOpacity>
     </SafeAreaView>
   );
 };
-
-export default Header;
 
 const styles = StyleSheet.create({
   container: {
@@ -80,5 +89,24 @@ const styles = StyleSheet.create({
   },
   notificationIconWrapper: {
     padding: 10, 
+    position: "relative",
+  },
+  notificationBadge: {
+    position: "absolute",
+    top: -5,
+    right: -5,
+    backgroundColor: Colors.red,
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  notificationText: {
+    color: Colors.white,
+    fontSize: 12,
+    fontWeight: "700",
   },
 });
+
+export default Header;

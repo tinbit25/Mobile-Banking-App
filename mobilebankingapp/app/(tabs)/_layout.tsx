@@ -1,11 +1,14 @@
+import React, { useState, useEffect } from 'react';
+import { View, SafeAreaView, StyleSheet } from 'react-native';
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
-import { SimpleLineIcons, AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { SimpleLineIcons, AntDesign, Ionicons } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import Header from '@/components/Header';
 
-export default function Layout() {
+
+const Layout = () => {
+
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -32,7 +35,7 @@ export default function Layout() {
           }}
         >
           <Tabs.Screen
-            name="index"
+            name="index" 
             options={{
               tabBarIcon: ({ focused }) => (
                 <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.primary : Colors.secondary }}>
@@ -42,7 +45,7 @@ export default function Layout() {
             }}
           />
           <Tabs.Screen
-            name="spending"
+            name="spending" 
             options={{
               tabBarIcon: ({ focused }) => (
                 <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.blue : Colors.secondary }}>
@@ -52,17 +55,7 @@ export default function Layout() {
             }}
           />
           <Tabs.Screen
-            name="profile"
-            options={{
-              tabBarIcon: ({ focused }) => (
-                <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.green : Colors.secondary }}>
-                  <FontAwesome name="user-o" size={20} color={focused ? Colors.white : Colors.tabInactive} />
-                </View>
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="GraphPage"
+            name="GraphPage" 
             options={{
               tabBarIcon: ({ focused }) => (
                 <View style={{ padding: 12, borderRadius: 30, backgroundColor: focused ? Colors.white : Colors.secondary }}>
@@ -71,11 +64,17 @@ export default function Layout() {
               ),
             }}
           />
+          <Tabs.Screen
+            name="notifications" 
+            options={{
+              tabBarLabel: 'Notifications',
+            }}
+          />
         </Tabs>
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -85,3 +84,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default Layout;

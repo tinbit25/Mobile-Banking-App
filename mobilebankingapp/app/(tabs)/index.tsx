@@ -2,7 +2,6 @@ import { ImageBackground, StyleSheet, View, Text, ScrollView, TouchableOpacity }
 import React from "react";
 import Colors from "@/constants/Colors";
 import { useRouter } from 'expo-router';
-import Header from "@/components/Header";
 import { Ionicons } from '@expo/vector-icons';
 import ExpenseBlock from "@/components/ExpenseBlock";
 import IncomeBlock from "@/components/IncomeBlock";
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingBottom: 50,
     backgroundColor: Colors.black,
-    paddingHorizontal: 20,
+    paddingHorizontal: 2,
   },
   contentBlock: {
     width: '100%',
