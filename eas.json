@@ -1,0 +1,14 @@
+{
+  "builds": {
+    "ios": {
+      "release": {
+        "buildType": "app-store"
+      }
+    },
+    "android": {
+      "release": {
+        "buildType": "app-bundle"
+      }
+    }
+  }
+}
