@@ -1,14 +1,21 @@
 {
-  "builds": {
-    "ios": {
-      "release": {
-        "buildType": "app-store"
-      }
+  "cli": {
+    "version": ">= 15.0.9",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
     },
-    "android": {
-      "release": {
-        "buildType": "app-bundle"
-      }
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "autoIncrement": true
     }
+  },
+  "submit": {
+    "production": {}
   }
 }
