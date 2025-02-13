@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { useRouter, useNavigation } from 'expo-router';
+import { useRouter } from 'expo-router';
 
 const notifications = [
   { id: '1', title: 'System Information', icon: '⚙️' },
@@ -10,11 +10,6 @@ const notifications = [
 
 const Notifications = () => {
   const router = useRouter();
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    navigation.setOptions({ title: 'Notifications' });
-  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -24,7 +19,6 @@ const Notifications = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
-            onPress={() => router.push(`/notifications/${item.id}`)}
           >
             <Text style={styles.icon}>{item.icon}</Text>
             <Text style={styles.itemTitle}>{item.title}</Text>
