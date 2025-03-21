@@ -7,7 +7,6 @@
     "icon": "./assets/images/fireworks.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
@@ -36,6 +35,11 @@
       "eas": {
         "projectId": "cdb0dafb-e6f6-425b-99e4-a559165f0928"
       }
+    },
+    "splash": {
+      "image": "./assets/images/splashscreen_logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     }
   }
 }

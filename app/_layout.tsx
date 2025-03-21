@@ -3,14 +3,12 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native'; // Import NavigationContainer
 import 'react-native-reanimated';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  // State to handle theme change
-  const [theme, setTheme] = useState(DefaultTheme); // Default theme or any other theme you want to set initially
+  const [theme, setTheme] = useState(DefaultTheme);
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -22,14 +20,13 @@ export default function RootLayout() {
   }, [loaded]);
 
   useEffect(() => {
-    // Optionally, you can listen for system theme preference
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleThemeChange = () => {
       setTheme(darkModeMediaQuery.matches ? DarkTheme : DefaultTheme);
     };
 
     darkModeMediaQuery.addEventListener('change', handleThemeChange);
-    handleThemeChange(); // Set initial theme
+    handleThemeChange();
 
     return () => {
       darkModeMediaQuery.removeEventListener('change', handleThemeChange);
@@ -41,12 +38,10 @@ export default function RootLayout() {
   }
 
   return (
-    <NavigationContainer theme={theme}> {/* Wrap the entire layout inside NavigationContainer */}
-      <ThemeProvider value={theme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider value={theme}>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+    </ThemeProvider>
   );
 }

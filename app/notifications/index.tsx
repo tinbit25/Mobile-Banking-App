@@ -11,6 +11,11 @@ const notifications = [
 const Notifications = () => {
   const router = useRouter();
 
+  const handleNotificationPress = () => {
+    // Navigate to the notification detail screen
+    router.push(`/notifications`);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -19,6 +24,7 @@ const Notifications = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
+            onPress={() => handleNotificationPress}  // Added navigation on press
           >
             <Text style={styles.icon}>{item.icon}</Text>
             <Text style={styles.itemTitle}>{item.title}</Text>
